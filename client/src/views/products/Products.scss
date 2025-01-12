@@ -1,0 +1,51 @@
+@use '../../styles/main.scss' as m;
+
+.products {
+    @include m.center;
+    &__box {
+        width: 90%;
+        max-width: 1200px;
+        @include m.column;
+    }
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1%;
+    }
+}
+
+@media (max-width: 500px) {
+    .products {
+        &__box {
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1%;
+        }
+    }
+}
+
+@media (min-width: 501px) {
+    .products {
+        &__box {
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1%;
+        }
+    }
+}
+
+@media (min-width: 748px) {
+    .products {
+        &__box {
+        }
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1%;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@use '../../styles/main.scss' as m;
+
+.product-item {
+    width: 100%;
+    transition: all .5s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        img {
+            transform: scale(1.05);
+        }
+    }
+    &__content {
+        @include m.column; 
+        &__img {
+            @include m.center;
+            overflow: hidden;
+            img {
+                width: 100%;
+                transition: transform .3s ease;
+            }
+        }
+        &__info {
+            @include m.column;
+            height: 10rem;
+            padding-left: .5rem;
+            &__title {
+                margin: 1rem 0;
+                font-weight: 600; 
+                font-size: 1.1rem;
+            }
+            &__description {
+                color: #6e6e6e;
+                margin: 0;
+            }
+            &__price {
+                font-weight: 600;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .product-item {
+        width: 100%;
+        transition: all .5s ease;
+        border-radius: 10px;
+        overflow: hidden;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+            img {
+                transform: scale(1.05);
+            }
+        }
+        &__content {
+            @include m.column; 
+            &__img {
+                @include m.center;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    transition: transform .3s ease;
+                }
+            }
+            &__info {
+                @include m.column;
+                height: 13rem;
+                padding-left: .5rem;
+                &__title {
+                    margin: 1rem 0;
+                    font-weight: 600; 
+                    font-size: 1.1rem;
+                }
+                &__description {
+                    color: #6e6e6e;
+                    margin: 0;
+                }
+                &__price {
+                    font-weight: 600;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
