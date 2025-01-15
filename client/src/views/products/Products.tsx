@@ -3,15 +3,17 @@ import './Products.scss';
 import ProductItem from './ProductItem';
 import { useEffect, useState } from 'react';
 import { ProductItemProps } from '../../types/products';
+import { useAppContext } from '../../context/AppProvider';
 
 export default function Products() {
 
     const [products, setProducts] = useState<[] | ProductItemProps[]>([]);
+    const { apiUrl } = useAppContext();
 
     useEffect(() => {
         const getAllProducts = async () => {
             try {
-                const response = await fetch(`http://localhost:3005/products`);
+                const response = await fetch(`${apiUrl}/products`);
                 const data = await response.json();
                 console.log(data);
                 setProducts(data.products);
