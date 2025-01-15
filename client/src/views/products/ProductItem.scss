@@ -13,7 +13,20 @@
         }
     }
     &__content {
-        @include m.column; 
+        @include m.column;
+        position: relative; 
+        &__addbtn {
+            position: absolute;
+            top: .5rem;
+            right: .5rem; 
+            border-radius: 5px; 
+            background-color: rgb(0, 84, 153);
+            border: none;
+            padding: .2rem .5rem;
+            color: #fff;
+            z-index: 10;
+            cursor: pointer;
+        }
         &__img {
             @include m.center;
             overflow: hidden;

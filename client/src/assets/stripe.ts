@@ -1,0 +1,4 @@
+// stripe.js
+
+
+export const STRIPE_PUBLISHABLE_KEY = "pk_test_51Qh3Y92fBe6Wd2Pyp19AcrIA8RvMB4SPcU0LfTKdRqvNDH5kcCx40v1xRLfvBAk1LAcrenTLSG5VaFyzdvSJ7pz2002HmYe2q8";

@@ -2,6 +2,6 @@ export type ProductItemProps = {
     id: number; 
     title: string; 
     price: string; 
-    imgs: string[];
+    url: string;
     description: string;
 };

@@ -1,0 +1,76 @@
+@use '../../styles/main.scss' as m;
+
+.shopping {
+    @include m.center;
+    margin-top: 4rem;
+    &__content {
+        width: 90%;
+        max-width: 1200px;
+        @include m.between;
+        align-items: flex-start;
+    }
+    &__bag {
+        @include m.column;
+        flex: 1;
+        margin-right: 1rem;
+    }
+    &__list {
+        @include m.column;
+    }
+    &__details {
+        width: 35%;
+        border-left: 1px solid gainsboro;
+        padding-left: 1rem;
+        &__totals {
+            @include m.between;
+            &__title {
+                font-weight: 600;
+            }
+        }
+        button {
+            margin-top: 1rem;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: .75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color .3s ease;
+            &:hover {
+                background-color: #2a2a2a;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .shopping {
+        &__content {
+        }
+        &__list {
+            @include m.column;
+        }
+    }
+}
+
+@media (min-width: 501px) {
+    .shopping {
+        &__content {
+        }
+        &__list {
+            @include m.column;
+        }
+    }
+}
+
+@media (min-width: 748px) {
+    .shopping {
+        &__content {
+        }
+        &__list {
+            @include m.column;
+        }
+    }
+}

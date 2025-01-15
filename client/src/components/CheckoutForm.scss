@@ -1,0 +1,75 @@
+@use '../styles/main.scss' as m;
+
+.checkout-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    @include m.center;
+    background-color: #00000039;
+    z-index: 110;
+    .checkout-box {
+        background-color: #fff;
+        width: 30rem;
+        height: auto;
+        @include m.center;
+        border-radius: 10px;
+        padding: 1rem;
+        box-sizing: border-box;
+        position: relative;
+        .checkout__modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 120;
+            cursor: pointer;
+        }
+        form {
+            width: 100%;
+            margin: 0;
+            position: relative;
+            @include m.column;
+            h2 {
+                margin: 0;
+            }
+            .StripeElement {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 10px;
+                background-color: #f9f9f9;
+            }            
+            .stripe-form-group {
+                display: flex;
+                flex-direction: column;
+                margin-top: 1rem;
+                label {
+                    font-size: .9rem;
+                    font-weight: 600;
+                    margin-bottom: .5rem;
+                }
+                input {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 10px;
+                    background-color: #f9f9f9;
+                }
+            }
+            button {
+                margin-top: 1rem;
+                width: 100%;
+                border-radius: 10px;
+                background-color: #000;
+                color: #fff;
+                border: none;
+                padding: .5rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color .3s ease;
+                &:hover {
+                    background-color: #2a2a2a;
+                }
+            }
+        }
+    }
+}
