@@ -19,6 +19,8 @@ export default function ShoppingCart() {
 
     const stripePromise = loadStripe(stripeKey);
 
+    console.log(apiUrl);
+
     useEffect(() => {
         if (cart.length === 0) return;
 
