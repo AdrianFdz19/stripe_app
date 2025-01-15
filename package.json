@@ -1,0 +1,23 @@
+{
+  "name": "stripe_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "render-postbuild": "npm install --prefix client --production=false && cd client && npm run build", 
+    "install": "npm install --prefix server && npm install --prefix client", 
+    "start": "npm start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianFdz19/stripe_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianFdz19/stripe_app/issues"
+  },
+  "homepage": "https://github.com/AdrianFdz19/stripe_app#readme",
+  "description": ""
+}
