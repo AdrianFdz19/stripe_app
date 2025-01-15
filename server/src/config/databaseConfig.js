@@ -6,7 +6,9 @@ config();
 let pool;
 
 if (process.env.NODE_ENV === "production") {
-    pool = undefined;
+    pool = new Pool({
+        connectionString: process.env.DATABASE_URL
+    });
     console.log('ESTAS EN UN ENTORNO DE PRODUCCION');
 } else {
     pool = new Pool({
