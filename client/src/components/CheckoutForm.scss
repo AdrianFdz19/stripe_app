@@ -1,6 +1,6 @@
 @use '../styles/main.scss' as m;
 
-.checkout-overlay {
+.checkout-modal-overlay {
     position: fixed;
     top: 0; 
     left: 0; 
@@ -9,7 +9,8 @@
     @include m.center;
     background-color: #00000039;
     z-index: 110;
-    .checkout-box {
+
+    .checkout-modal-box {
         background-color: #fff;
         width: 30rem;
         height: auto;
@@ -18,44 +19,54 @@
         padding: 1rem;
         box-sizing: border-box;
         position: relative;
-        .checkout__modal__close {
+
+        .checkout-modal-close {
             position: absolute;
             top: 1rem;
             right: 1rem;
             z-index: 120;
             cursor: pointer;
+            width: 1.1rem;
+            height: auto;
         }
+
         form {
             width: 100%;
             margin: 0;
             position: relative;
             @include m.column;
-            h2 {
+
+            .checkout-form-title {
                 margin: 0;
             }
+
             .StripeElement {
                 border: 1px solid #ccc;
                 border-radius: 4px;
                 padding: 10px;
                 background-color: #f9f9f9;
-            }            
-            .stripe-form-group {
+            }
+
+            .stripe-input-group {
                 display: flex;
                 flex-direction: column;
                 margin-top: 1rem;
-                label {
+
+                .stripe-input-label {
                     font-size: .9rem;
                     font-weight: 600;
                     margin-bottom: .5rem;
                 }
-                input {
+
+                .stripe-input {
                     border: 1px solid #ccc;
                     border-radius: 4px;
                     padding: 10px;
                     background-color: #f9f9f9;
                 }
             }
-            button {
+
+            .stripe-submit-button {
                 margin-top: 1rem;
                 width: 100%;
                 border-radius: 10px;
@@ -68,6 +79,93 @@
                 transition: background-color .3s ease;
                 &:hover {
                     background-color: #2a2a2a;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .checkout-modal-overlay {
+        position: fixed;
+        top: 0; 
+        left: 0; 
+        width: 100%;
+        height: 100%;
+        @include m.center;
+        background-color: #00000039;
+        z-index: 110;
+    
+        .checkout-modal-box {
+            background-color: #fff;
+            width: 90%;
+            height: auto;
+            @include m.center;
+            border-radius: 10px;
+            padding: 1rem;
+            box-sizing: border-box;
+            position: relative;
+    
+            .checkout-modal-close {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                z-index: 120;
+                cursor: pointer;
+                width: 1.1rem;
+                height: auto;
+            }
+    
+            form {
+                width: 100%;
+                margin: 0;
+                position: relative;
+                @include m.column;
+    
+                .checkout-form-title {
+                    margin: 0;
+                }
+    
+                .StripeElement {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 10px;
+                    background-color: #f9f9f9;
+                }
+    
+                .stripe-input-group {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 1rem;
+    
+                    .stripe-input-label {
+                        font-size: .9rem;
+                        font-weight: 600;
+                        margin-bottom: .5rem;
+                    }
+    
+                    .stripe-input {
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        padding: 10px;
+                        background-color: #f9f9f9;
+                    }
+                }
+    
+                .stripe-submit-button {
+                    margin-top: 1rem;
+                    width: 100%;
+                    border-radius: 10px;
+                    background-color: #000;
+                    color: #fff;
+                    border: none;
+                    padding: .5rem;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: background-color .3s ease;
+                    &:hover {
+                        background-color: #2a2a2a;
+                    }
                 }
             }
         }

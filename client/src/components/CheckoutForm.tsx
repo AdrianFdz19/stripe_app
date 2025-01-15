@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
 import './CheckoutForm.scss';
 import { useAppContext } from '../context/AppProvider';
+import { IoClose } from "react-icons/io5";
 
 const CARD_ELEMENT_OPTIONS = {
     style: {
@@ -59,17 +60,13 @@ export function CheckoutForm({ total, setShowCheckout }: { total: number; setSho
     };
 
     return (
-        <div className="checkout-overlay">
-            <div className="checkout-box">
-                <button className="checkout__modal__close" onClick={() => setShowCheckout(false)}>Close</button>
+        <div className="checkout-modal-overlay">
+            <div className="checkout-modal-box">
+                <IoClose className="checkout-modal-close" onClick={() => setShowCheckout(false)} />
                 <form onSubmit={handleSubmit}>
-                    <h2>Checkout Form</h2>
-                    {/* <CardElement />
-                    <button type="submit" disabled={!stripe || loading}>
-                        {loading ? 'Processing...' : 'Pay'}
-                    </button> */}
-                    <div className="stripe-form-group">
-                        <label htmlFor="cardholder-name">Cardholder Name</label>
+                    <h2 className="checkout-form-title">Checkout Form</h2>
+                    <div className="stripe-input-group">
+                        <label htmlFor="cardholder-name" className="stripe-input-label">Cardholder Name</label>
                         <input
                             type="text"
                             id="cardholder-name"
@@ -79,12 +76,12 @@ export function CheckoutForm({ total, setShowCheckout }: { total: number; setSho
                         />
                     </div>
 
-                    <div className="stripe-form-group">
-                        <label htmlFor="card-element">Card Details</label>
-                        <CardElement id="card-element" /* options={CARD_ELEMENT_OPTIONS} */ />
+                    <div className="stripe-input-group">
+                        <label htmlFor="card-element" className="stripe-input-label">Card Details</label>
+                        <CardElement id="card-element" />
                     </div>
 
-                    <button type="submit" disabled={!stripe || loading}>
+                    <button type="submit" disabled={!stripe || loading} className="stripe-submit-button">
                         {loading ? 'Processing...' : 'Pay'}
                     </button>
                 </form>

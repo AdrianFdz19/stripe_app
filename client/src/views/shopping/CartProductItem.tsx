@@ -14,7 +14,7 @@ export default function CartProductItem({product} : CartProductItem) {
             <div className="cart-product__content__info">
                 <div className="cart-product__content__info__header">
                     <h3>{product.title}</h3>
-                    <h3>{`$${product.price}`}</h3>
+                    <h3 >{`$${product.price}`}</h3>
                 </div>
                 <p>{product.description}</p>
             </div>

@@ -58,30 +58,30 @@ export default function ShoppingCart() {
     }, [cart, tax]);
 
     return (
-        <div className="shopping">
-            <div className="shopping__content">
-                <div className="shopping__bag">
+        <div className="cart">
+            <div className="cart__container">
+                <div className="cart__items">
                     <h1>Products</h1>
-                    <div className="shopping__list">
+                    <div className="cart__item-list">
                         {products.length > 0 &&
                             products.map((product) => (
                                 <CartProductItem key={product.id} product={product} />
                             ))}
                     </div>
                 </div>
-                <div className="shopping__details">
+                <div className="cart__summary">
                     <h1>Details</h1>
                     <h3>Summary</h3>
-                    <div className="shopping__details__totals">
-                        <p className="shopping__details__totals__title">Subtotal</p>
+                    <div className="cart__totals">
+                        <p className="cart__totals__label">Subtotal</p>
                         <p>${subtotal.toFixed(2)}</p>
                     </div>
-                    <div className="shopping__details__totals">
-                        <p className="shopping__details__totals__title">Tax ({tax}%)</p>
+                    <div className="cart__totals">
+                        <p className="cart__totals__label">Tax ({tax}%)</p>
                         <p>${((subtotal * tax) / 100).toFixed(2)}</p>
                     </div>
-                    <div className="shopping__details__totals">
-                        <p className="shopping__details__totals__title">Total</p>
+                    <div className="cart__totals">
+                        <p className="cart__totals__label">Total</p>
                         <p>${total.toFixed(2)}</p>
                     </div>
                     <button onClick={()=>setShowCheckout(true)} >Checkout</button>
@@ -89,7 +89,7 @@ export default function ShoppingCart() {
             </div>
 
             {showCheckout && (
-                <div className="checkout__modal">
+                <div className="checkout-modal">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm total={total} setShowCheckout={setShowCheckout} />
                     </Elements>
