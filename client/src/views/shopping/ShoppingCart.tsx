@@ -8,24 +8,23 @@ import { useAppContext } from '../../context/AppProvider';
 import { CheckoutForm } from '../../components/CheckoutForm';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { STRIPE_PUBLISHABLE_KEY } from '../../assets/stripe';
-
-const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
 export default function ShoppingCart() {
     const [products, setProducts] = useState<[] | ProductItemProps[]>([]);
     const [showCheckout, setShowCheckout] = useState(false);
-    const { cart } = useAppContext();
+    const { cart, apiUrl, stripeKey } = useAppContext();
     const [subtotal, setSubtotal] = useState(0); // Inicializamos como número
     const [tax, setTax] = useState(15); // Porcentaje de impuesto
     const [total, setTotal] = useState<number>(0); // Inicializamos como número
+
+    const stripePromise = loadStripe(stripeKey);
 
     useEffect(() => {
         if (cart.length === 0) return;
 
         const getCartProducts = async () => {
             try {
-                const response = await fetch(`http://localhost:3005/products/cart`, {
+                const response = await fetch(`${apiUrl}/products/cart`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -13,6 +13,8 @@ interface AppContextProps {
   updateUser: (user: Partial<UserProps>) => void;
   addToCart: (productId: number) => void;
   removeFromCart: (id: number) => void;
+  apiUrl: string;
+  stripeKey: string;
 }
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -24,6 +26,9 @@ export const useAppContext = () => {
 };
 
 export default function AppProvider({ children }: { children: ReactNode }) {
+  const apiUrl = import.meta.env.VITE_API_URL as string;
+  const stripeKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY as string;
+
   const [user, setUser] = useState<UserProps>({
     id: 1,
     username: "Adrian Fernandez",
@@ -64,6 +69,8 @@ export default function AppProvider({ children }: { children: ReactNode }) {
     updateUser,
     addToCart,
     removeFromCart,
+    apiUrl, 
+    stripeKey
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

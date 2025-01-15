@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
 import './CheckoutForm.scss';
+import { useAppContext } from '../context/AppProvider';
 
 const CARD_ELEMENT_OPTIONS = {
     style: {
@@ -25,12 +26,13 @@ export function CheckoutForm({ total, setShowCheckout }: { total: number; setSho
     const stripe = useStripe();
     const elements = useElements();
     const [loading, setLoading] = useState(false);
+    const { apiUrl } = useAppContext();
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         setLoading(true);
 
-        const response = await fetch('http://localhost:3005/create-payment-intent', {
+        const response = await fetch(`${apiUrl}/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
