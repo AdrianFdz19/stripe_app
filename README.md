@@ -94,16 +94,16 @@ cd simulador-pagos-stripe
 /server  - Contiene el código del backend.
 ```
 - **Archivos clave**:
-  - `server/routes/payment.js`: Lógica para manejar pagos con Stripe.
-  - `client/src/components/PaymentForm.jsx`: Formulario de pago.
+  - `server/src/routes/payment.js`: Lógica para manejar pagos con Stripe.
+  - `client/src/components/CheckoutForm.tsx`: Formulario de pago.
 
 ---
 
 ## Capturas de Pantalla
 Puedes incluir capturas de pantalla de la interfaz o flujos clave para ilustrar mejor el funcionamiento del proyecto:
 
-![Formulario de Pago](ruta/a/imagen1.png)
-![Historial de Transacciones](ruta/a/imagen2.png)
+![Formulario de Pago](https://res.cloudinary.com/dlnapytj1/image/upload/v1737219636/checkoutform_ozelae.png)
+![Historial de Transacciones](https://res.cloudinary.com/dlnapytj1/image/upload/v1737219853/Captura_de_pantalla_2025-01-18_110333_frlrms.png)
 
 ---
 
