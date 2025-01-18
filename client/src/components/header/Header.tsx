@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="header">
         <div className="header__box">
-            <h1>header</h1>
+            <h1 onClick={()=>navigate('/products')} >Stripe App Simulator</h1>
             <div className="header__icon-box" onClick={redirectToShoppingCart} >
                 { cart.length > 0 && <div className="header__icon-box__count">{cart.length}</div> }
                 <PiShoppingCartThin className='header__icon' />

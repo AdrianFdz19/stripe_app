@@ -13,6 +13,9 @@
     &__box {
         width: 90%;
         @include m.between;
+        h1 {
+            cursor: pointer;
+        }
     }
     &__icon-box {
         width: 2rem;
